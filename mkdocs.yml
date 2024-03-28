@@ -1,0 +1,64 @@
+site_name: F-Prime Math Component Tutorial
+site_url: https://github.com/pages/keck-in-space/fprime-tutorial-math-component
+repo_url: https://github.com/keck-in-space/fprime-tutorial-math-component
+repo_name: keck-in-space/fprime-tutorial-math-component
+
+theme:
+    name: material
+    features:
+      - navigation.instant
+      - navigation.sections
+      - content.code.copy
+    logo: img/logo.svg
+    favicon: img/logo.svg
+    font:
+        code: JetBrains Mono
+
+    palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: deep orange
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: deep-orange
+
+markdown_extensions:
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+
+nav:
+  - Tutorial:
+    - Welcome: README.md
+    - Project Setup: project-setup.md
+    - Defining Types: defining-types.md
+    - Constructing Ports: constructing-ports.md
+    - Creating Components:
+      - Part One:   creating-components-1.md
+      - Part Two:   creating-components-2.md
+      - Part Three: creating-components-3.md
+      - Part Four:  creating-components-4.md
+    - Developing Deployments: developing-deployments.md
+    - Writing Unit Tests:
+      - Part One:   writing-unit-tests-1.md
+      - Part Two:   writing-unit-tests-2.md
+      - Part Three: writing-unit-tests-3.md
+      - Part Four:  writing-unit-tests-4.md
+      - Part Five:  writing-unit-tests-5.md
+      - Part Six:   writing-unit-tests-6.md
+      - Part Seven: writing-unit-tests-7.md
+    - Adding Telemetry: adding-telemetry.md
+    - Error Handling:
+      - Part One: error-handling-1.md
+      - Part Two: error-handling-2.md

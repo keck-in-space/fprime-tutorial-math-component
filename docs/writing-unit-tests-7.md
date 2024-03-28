@@ -26,7 +26,7 @@ void MathReceiverTester ::
 
 `testAdd()` calls the `setFactor` helper function to set the factor parameter. Then it calls the `doMathOp` function to do a math operation.
 
-## Write a SUB test 
+## Write a SUB test
 Add the following function to the `Tests` section of `MathReceiverTester.cpp`:
 
 ```c++
@@ -106,16 +106,16 @@ void MathReceiverTester ::
 }
 ```
 
-## Explanation 
+## Explanation
 This test first loops over the throttle count, which is stored for us in the constant `EVENTID_FACTOR_UPDATED_THROTTLE` of the `MathReceiver` component base class. On each iteration, it calls `setFactor`. At the end of this loop, the `FACTOR_UPDATED` event should be throttled.
 
 Next the test calls `setFactor` with a second argument of `ThrottleState::THROTTLED`. This code checks that the event is throttled.
 
 Next the test sends the command `CLEAR_EVENT_THROTTLE`, checks for the corresponding notification event, and checks that the throttling is cleared.
 
-Add your tests to `MathReceiverTestMain.cpp` so that the tests run when `fprime-util check' is called. 
+Add your tests to `MathReceiverTestMain.cpp` so that the tests run when `fprime-util check' is called.
 
-Here is how to include `testAdd` to `MathReceiverTestMain.cpp`. Follow this patttern to inlcude any other unit tests you wrote: 
+Here is how to include `testAdd` to `MathReceiverTestMain.cpp`. Follow this patttern to inlcude any other unit tests you wrote:
 
 ```cpp
 // In: MathReceiverTestMain.cpp
@@ -125,14 +125,11 @@ TEST(Nominal, AddCommand) {
 }
 ```
 
-See if your tests are working and trouble shoot any errors: 
+See if your tests are working and trouble shoot any errors:
 
 ```shell
 # In: MathReceiver
-fprime-util check 
+fprime-util check
 ```
 
-## Congratulations!!!
-
-You have **finished** the MathComponent Tutorial.
-You have now experienced a significant part of F' and are ready to start building your own deployments. 
+**Next:** [Adding Telemetry](./adding-telemetry.md)

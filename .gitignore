@@ -6,3 +6,4 @@ fprime-venv
 **/build-fprime-*
 **-template
 **/logs
+.venv

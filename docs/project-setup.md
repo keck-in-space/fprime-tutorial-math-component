@@ -1,3 +1,5 @@
+# Project Setup
+
 ## Bootstrapping F´
 
 > Note: if you have followed the [HelloWorld tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/) previously, this should feel very familiar...

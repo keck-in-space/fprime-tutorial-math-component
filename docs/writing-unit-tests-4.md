@@ -1,6 +1,6 @@
 # Writing Unit Tests Part 4: Random testing
 
-## Background 
+## Background
 
 Testing using only numbers that you hard code into your tests can easily leave edge cases untouched can allow you, the programmer, to miss bugs.
 
@@ -8,11 +8,11 @@ F' provides a module called STest that provides helper classes and functions for
 
 ## In this Section
 
-In this section of the tutorial, you will create test that uses random numbers instead of hard coded numbers. 
+In this section of the tutorial, you will create test that uses random numbers instead of hard coded numbers.
 
-To incorporate random numbers into the existing tests you have written for `MathSender`, you only need to make a couple small modifications. 
+To incorporate random numbers into the existing tests you have written for `MathSender`, you only need to make a couple small modifications.
 
-**First,** edit `MathSender/test/ut/MathSenderTester.cpp` by adding a `Pick.hpp` to the includes: 
+**First,** edit `MathSender/test/ut/MathSenderTester.cpp` by adding a `Pick.hpp` to the includes:
 
 ```cpp
 // In: MathSenderTester.cpp
@@ -40,7 +40,7 @@ STest::Random::seed();
 
 **Fourth,** modify `MathSender/CMakeLists.txt` to include STest as a build dependancy:
 
-```cmake 
+```cmake
 # In: /MathSender/CMakeLists.txt
 # Above: register_fprime_ut()
 set(UT_MOD_DEPS STest)
@@ -48,8 +48,8 @@ set(UT_MOD_DEPS STest)
 **Fifth,** recompile and rerun the tests.
 
 ```shell
-# In: MathSender  
-fprime-util check 
+# In: MathSender
+fprime-util check
 ```
 
 Go to MathProject/build-fprime-automatic-native-ut/Components/MathSender and inspect the file `seed-history`. This file is a log of random seed values. Each line represents the seed used in the corresponding run.
@@ -65,8 +65,8 @@ Try the following:
 
    3. Inspect ```MathProject/build-fprime-automatic-native-ut/Components/MathSender/seed-history```. You should see that the value S was used in the runs you just did (corresponding to the last few entries in seed-history).
 
-## Summary 
+## Summary
 
 In this section you incorprated random testing into your existing tests.
 
-**Next:** [Adding Telemetry](./adding-telemetry.md)
+**Next:** [Writing Unit Tests 5](./writing-unit-tests-5.md)

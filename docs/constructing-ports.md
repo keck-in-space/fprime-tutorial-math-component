@@ -1,6 +1,6 @@
-# Constructing Ports 
+# Constructing Ports
 
-## Background 
+## Background
 
 A **port** is the endpoint of a connection between two components.
 A **port definition** is like a function signature; it defines the type of the data carried on a port.
@@ -14,34 +14,34 @@ For this tutorial, you will need two port definitions:
 * `MathResult` for sending the result of an arithmetic
 operation from `MathReceiver` to `MathSender`.
 
-## In this section 
+## In this section
 
-In this section, you will create a `Ports` directory where you will create two ports in `MathPorts.fpp`. You will add the ports directory into the project build and built `Ports`. 
+In this section, you will create a `Ports` directory where you will create two ports in `MathPorts.fpp`. You will add the ports directory into the project build and built `Ports`.
 
-## Setup 
+## Setup
 
 Start by making a directory where the ports will be defined. Create a directory called `Ports` in the `MathProject` directory:
 
-```shell 
+```shell
 # In: MathProject
-mkdir Ports 
+mkdir Ports
 cd Ports
 ```
 
 While in "Ports", create an empty fpp file called `MathPorts.fpp`, this is where the ports will be defined:
 
-```shell 
+```shell
 # In: Ports
 touch MathPorts.fpp
 ```
 
 ## Implementing the Ports
 
-Use your favorite text editor to add the following to `MathPorts.fpp`: 
+Use your favorite text editor to add the following to `MathPorts.fpp`:
 
 ```fpp
 # In: MathPorts.fpp
-module MathModule { 
+module MathModule {
   @ Port for requesting an operation on two numbers
   port OpRequest(
     val1: F32 @< The first operand
@@ -55,23 +55,23 @@ module MathModule {
   )
 }
 ```
-> Notice how we define ports in MathModule, which is where we defined MathOp as well. 
+> Notice how we define ports in MathModule, which is where we defined MathOp as well.
 
 Here, you have created two ports. The first port, called OpRequest, carries two 32-bit floats (`val1` and `val2`) and a math operations `op`. The second port only carries one 32-bit float (result). The first port is intended to send an operation and operands to the `MathReceiver`.
-The second port is designed to send the results of the operation back to `MathSender`. 
+The second port is designed to send the results of the operation back to `MathSender`.
 
 For more information about port definitions, see [_The FPP User's Guide_](https://fprime-community.github.io/fpp/fpp-users-guide.html).
 
-## Adding to the Build 
+## Adding to the Build
 
-Create a `CMakeLists.txt` file in `Ports`. 
+Create a `CMakeLists.txt` file in `Ports`.
 
-```shell 
+```shell
 # In: Ports
 touch CMakeLists.txt
 ```
 
-Add the following to the `CMakeLists.txt`. 
+Add the following to the `CMakeLists.txt`.
 
 ```cmake
 # In: Ports/CMakeLists.txt
@@ -82,9 +82,9 @@ set(SOURCE_FILES
 register_fprime_module()
 ```
 
-Add the following to `project.cmake`. Remember that `project.cmake` is in MathProject, not Ports. 
+Add the following to `project.cmake`. Remember that `project.cmake` is in MathProject, not Ports.
 
-```cmake 
+```cmake
 # In: MathProject/project.cmake
 add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/Ports/")
 ```
@@ -101,7 +101,6 @@ files end in `*PortAc.hpp` and `*PortAc.cpp`.
 Note however, the auto-generated C++ port files are used by the autocoded component implementations; you won't ever program directly against their interfaces.
 
 ## Conclusion
-At this point, you have succefully implemented all the ports used for this tutorial and added them to the build. 
-
+At this point, you have succefully implemented all the ports used for this tutorial and added them to the build.
 
 **Next:** [Creating Components Part 1: Creating the MathSender](./creating-components-1.md)
