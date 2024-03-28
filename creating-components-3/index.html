@@ -1,0 +1,1322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/pages/keck-in-space/fprime-tutorial-math-component/creating-components-3/">
+      
+      
+        <link rel="prev" href="../creating-components-2/">
+      
+      
+        <link rel="next" href="../creating-components-4/">
+      
+      
+      <link rel="icon" href="../img/logo.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>Part Three - F-Prime Math Component Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-components-part-3-starting-the-mathreceiver" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="F-Prime Math Component Tutorial" class="md-header__button md-logo" aria-label="F-Prime Math Component Tutorial" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            F-Prime Math Component Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part Three
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/keck-in-space/fprime-tutorial-math-component" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    keck-in-space/fprime-tutorial-math-component
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="F-Prime Math Component Tutorial" class="md-nav__button md-logo" aria-label="F-Prime Math Component Tutorial" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    F-Prime Math Component Tutorial
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/keck-in-space/fprime-tutorial-math-component" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    keck-in-space/fprime-tutorial-math-component
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defining-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Defining Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructing-ports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constructing Ports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Creating Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Creating Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-components-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-components-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Part Three
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Part Three
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-this-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      In this Section
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-mathreceiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the MathReceiver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-the-f-prime-prime-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing the F Prime Prime Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-implementation-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate the Implementation Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-components-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Four
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developing-deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developing Deployments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Writing Unit Tests
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Writing Unit Tests
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Three
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Four
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Five
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Six
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-unit-tests-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Seven
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-telemetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding Telemetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Error Handling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_9">
+            <span class="md-nav__icon md-icon"></span>
+            Error Handling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handling-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handling-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-this-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      In this Section
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-mathreceiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the MathReceiver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-the-f-prime-prime-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing the F Prime Prime Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-implementation-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate the Implementation Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="creating-components-part-3-starting-the-mathreceiver">Creating Components Part 3: Starting the MathReceiver</h1>
+<h2 id="in-this-section">In this Section</h2>
+<p>In this section you will begin creating <code>MathReceiver</code> following the same steps as the last section. Note, that the <code>MathReceiver</code> is a little different than the <code>MathSender</code>.</p>
+<h2 id="component-description">Component Description</h2>
+<p>The <code>MathReceiver</code> is a queued component which receives parameters, send parameters, logs events, and sends telemetry. With this is mind, use the following command to create the <code>MathReceiver</code> component. </p>
+<h2 id="creating-the-mathreceiver">Creating the MathReceiver</h2>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># In: Components</span>
+fprime-util<span class="w"> </span>new<span class="w"> </span>--component<span class="w"> </span>
+</code></pre></div>
+This command will prompt you for some inputs. You should specify the follow so that the components matches the short description above. Don't forget that this is a QUEUED component:</p>
+<div class="highlight"><pre><span></span><code>[INFO] Cookiecutter source: using builtin
+Component name [MyComponent]: MathReceiver 
+Component short description [Example Component for F Prime FSW framework.]: Your description
+Component namespace [Component]: MathModule
+Select component kind:
+1 - active
+2 - passive
+3 - queued
+Choose from 1, 2, 3 [1]: 3 
+Enable Commands?:
+1 - yes
+2 - no
+Choose from 1, 2 [1]: 1
+Enable Telemetry?:
+1 - yes
+2 - no
+Choose from 1, 2 [1]: 1
+Enable Events?:
+1 - yes
+2 - no
+Choose from 1, 2 [1]: 1
+Enable Parameters?:
+1 - yes
+2 - no
+Choose from 1, 2 [1]: 1
+[INFO] Found CMake file at &#39;MathProject/project.cmake&#39;
+Add component Components/MathSender to MathProject/project.cmake at end of file (yes/no)? yes
+Generate implementation files (yes/no)? yes
+</code></pre></div>
+<p>Before doing anything to the files you have just generated, try building:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In: MathReceiver</span>
+fprime-util<span class="w"> </span>build
+</code></pre></div>
+<h2 id="editing-the-f-prime-prime-model">Editing the F Prime Prime Model</h2>
+<p>Now that you have created the component, you can implement the component behavior in the fpp model. Use a text editor to entirely replace the existing <code>MathReceiver.fpp</code> with the following: </p>
+<div class="highlight"><pre><span></span><code># In: MathReceiver.fpp
+module MathModule {
+
+  @ Component for receiving and performing a math operation
+  queued component MathReceiver {
+
+    # ----------------------------------------------------------------------
+    # General ports
+    # ----------------------------------------------------------------------
+
+    @ Port for receiving the math operation
+    async input port mathOpIn: OpRequest
+
+    @ Port for returning the math result
+    output port mathResultOut: MathResult
+
+    @ The rate group scheduler input
+    sync input port schedIn: Svc.Sched
+
+    # ----------------------------------------------------------------------
+    # Special ports
+    # ----------------------------------------------------------------------
+
+    @ Command receive
+    command recv port cmdIn
+
+    @ Command registration
+    command reg port cmdRegOut
+
+    @ Command response
+    command resp port cmdResponseOut
+
+    @ Event
+    event port eventOut
+
+    @ Parameter get
+    param get port prmGetOut
+
+    @ Parameter set
+    param set port prmSetOut
+
+    @ Telemetry
+    telemetry port tlmOut
+
+    @ Text event
+    text event port textEventOut
+
+    @ Time get
+    time get port timeGetOut
+
+    # ----------------------------------------------------------------------
+    # Parameters
+    # ----------------------------------------------------------------------
+
+    @ The multiplier in the math operation
+    param FACTOR: F32 default 1.0 id 0 \
+      set opcode 10 \
+      save opcode 11
+
+    # ----------------------------------------------------------------------
+    # Events
+    # ----------------------------------------------------------------------
+
+    @ Factor updated
+    event FACTOR_UPDATED(
+                          val: F32 @&lt; The factor value
+                        ) \
+      severity activity high \
+      id 0 \
+      format &quot;Factor updated to {f}&quot; \
+      throttle 3
+
+    @ Math operation performed
+    event OPERATION_PERFORMED(
+                               val: MathOp @&lt; The operation
+                             ) \
+      severity activity high \
+      id 1 \
+      format &quot;{} operation performed&quot;
+
+    @ Event throttle cleared
+    event THROTTLE_CLEARED \
+      severity activity high \
+      id 2 \
+      format &quot;Event throttle cleared&quot;
+
+    # ----------------------------------------------------------------------
+    # Commands
+    # ----------------------------------------------------------------------
+
+    @ Clear the event throttle
+    async command CLEAR_EVENT_THROTTLE \
+      opcode 0
+
+    # ----------------------------------------------------------------------
+    # Telemetry
+    # ----------------------------------------------------------------------
+
+    @ The operation
+    telemetry OPERATION: MathOp id 0
+
+    @ Multiplication factor
+    telemetry FACTOR: F32 id 1
+
+  }
+
+}
+</code></pre></div>
+<h2 id="explanation">Explanation</h2>
+<p>This code defines a component <code>MathReceiver</code>.
+The component is <strong>queued</strong>, which means it has a queue but no thread.
+Work occurs when the thread of another component invokes the <code>schedIn</code> port of this component.</p>
+<p>We have divided the specifiers of this component into six groups:</p>
+<ol>
+<li><strong>General ports:</strong> There are three ports:</li>
+<li>an input port <code>mathOpIn</code> for receiving a math operation,
+<code>mathOpIn</code> is asynchronous. That means invocations of <code>mathOpIn</code> put messages on a queue.</li>
+<li>an output port <code>mathResultOut</code> for sending a math result, and</li>
+<li>
+<p>an input port <code>schedIn</code> for receiving invocations from the scheduler.
+<code>schedIn</code> is synchronous. That means invocations of <code>schedIn</code> immediately call the handler function to do work.</p>
+</li>
+<li>
+<p><strong>Special ports:</strong>
+As before, there are special ports for commands, events, telemetry, and time. There are also special ports for getting and setting parameters. We will explain the function of these ports below.</p>
+</li>
+<li>
+<p><strong>Parameters:</strong> There is one <strong>parameter</strong>.
+A parameter is a constant that is configurable by command. In this case there is one parameter <code>FACTOR</code>.
+It has the default value 1.0 until its value is changed by command.
+When doing math, the <code>MathReceiver</code> component performs the requested operation and then multiplies by this factor.
+For example, if the arguments of the <code>mathOpIn</code> port are <em>v1</em>, <code>ADD</code>, and <em>v2</em>, and the factor is <em>f</em>, then the result sent on <code>mathResultOut</code> is <em>(v1 + v2) f</em>.</p>
+</li>
+<li>
+<p><strong>Events:</strong> There are three event reports:</p>
+</li>
+<li>
+<p><code>FACTOR_UPDATED</code>: Emitted when the <code>FACTOR</code> parameter
+      is updated by command.
+      This event is <strong>throttled</strong> to a limit of three.
+      That means that after the event is emitted three times
+      it will not be emitted any more, until the throttling
+      is cleared by command (see below).</p>
+</li>
+<li>
+<p><code>OPERATION_PERFORMED</code>: Emitted when this component
+      performs a math operation.</p>
+</li>
+<li>
+<p><code>THROTTLE_CLEARED</code>: Emitted when the event throttling
+      is cleared.</p>
+</li>
+<li>
+<p><strong>Commands:</strong> There is one command for clearing the event throttle.</p>
+</li>
+<li>
+<p><strong>Telemetry:</strong> There two telemetry channels: one for reporting the last operation received and one for reporting the factor parameter.</p>
+</li>
+</ol>
+<p>For the parameters, events, commands, and telemetry, we chose to put in all the opcodes and identifiers explicitly.
+These can also be left implicit, as in the <code>MathSender</code> component example.
+For more information, see the <a href="https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Components"><em>FPP User's Guide</em></a>.</p>
+<h2 id="generate-the-implementation-files">Generate the Implementation Files</h2>
+<p>Generate cpp and hpp files based off your <code>MathReceiver</code> by using: </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In: MathReceiver </span>
+fprime-util<span class="w"> </span>impl
+</code></pre></div>
+<p>Replace the orginal cpp and hpp files with the ones you just created:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In: MathReceiver</span>
+mv<span class="w"> </span>MathReceiver.cpp-template<span class="w"> </span>MathReceiver.cpp
+mv<span class="w"> </span>MathReceiver.hpp-template<span class="w"> </span>MathReceiver.hpp
+</code></pre></div>
+<p>Test the build:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In: MathReceiver</span>
+fprime-util<span class="w"> </span>build<span class="w"> </span>
+</code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>You are two thirds of the way through finishing <code>MathReceiver</code>.
+So far, you have created a queued component stub, filled in the fpp 
+file, and wrote component charactaristics in <code>MathReceiver.fpp</code>. Next,
+you will write the behavior for <code>MathReceiver</code>.</p>
+<p><strong>Next:</strong> <a href="../creating-components-4/">Creating Components Part 4: Implementing MathReceiver Behavior</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
